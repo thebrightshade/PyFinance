@@ -14,5 +14,4 @@ start = dt.datetime.now() - dt.timedelta(days=5*365)
 end = dt.datetime.now()
 
 df = pd.read_csv('TSLA.csv',parse_dates=True, index_col=0)
-df.plot()
-plt.show()
+df['100ma'] = df['close'].rolling(window=100).mean()
